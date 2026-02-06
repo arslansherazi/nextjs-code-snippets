@@ -11,14 +11,14 @@ export async function login(formData: FormData) {
   const password = formData.get("password")
 
   if (email !== TEST_EMAIL || password !== TEST_PASSWORD) {
-    throw new Error("Invalid credentials")
+    return { error: "Invalid credentials. Please check your email and password." }
   }
 
   // simulate token
   const cookieStore = await cookies()
   cookieStore.set("auth_token", "mock-token", {
     httpOnly: true, // Prevents JavaScript access (XSS protection)
-    secure: true, // Only sent over HTTPS connections
+    secure: process.env.NODE_ENV === "production", // Only HTTPS in production (allows HTTP in development)
     sameSite: "lax", // CSRF protection: sent with same-site requests and top-level navigations
     path: "/", // Cookie available across entire site
   })

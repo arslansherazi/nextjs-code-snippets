@@ -2,6 +2,7 @@
 
 import { login } from "../actions/auth"
 import { useFormStatus } from "react-dom"
+import { useState } from "react"
 
 function SubmitButton() {
   const { pending } = useFormStatus()
@@ -18,8 +19,23 @@ function SubmitButton() {
 }
 
 export default function LoginForm() {
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(formData: FormData) {
+    setError(null)
+    const result = await login(formData)
+    if (result?.error) {
+      setError(result.error)
+    }
+  }
+
   return (
-    <form action={login} className="space-y-4">
+    <form action={handleSubmit} className="space-y-4">
+      {error && (
+        <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-800 dark:bg-red-950/30 dark:text-red-200">
+          {error}
+        </div>
+      )}
       <div>
         <input
           name="email"
