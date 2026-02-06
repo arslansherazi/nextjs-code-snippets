@@ -14,7 +14,7 @@ export default async function CachePage() {
   return (
     <main className="min-h-screen p-6 md:p-8">
       <div className="mx-auto max-w-2xl">
-        <h1 className="mb-2 text-2xl font-semibold text-foreground md:text-3xl">
+        <h1 className="mb-2 text-2xl text-foreground md:text-3xl">
           Cache &amp; Revalidation
         </h1>
         <p className="mb-8 text-gray-500 dark:text-gray-400">
