@@ -16,6 +16,14 @@ export default function Home() {
           <ul className="space-y-2">
             <li>
               <a
+                href="/suspense"
+                className="block rounded-lg border border-gray-200 bg-white px-4 py-3 text-foreground transition hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
+              >
+                Suspense
+              </a>
+            </li>
+            <li>
+              <a
                 href="/posts"
                 className="block rounded-lg border border-gray-200 bg-white px-4 py-3 text-foreground transition hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
               >
